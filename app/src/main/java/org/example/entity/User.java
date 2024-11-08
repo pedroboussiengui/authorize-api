@@ -25,6 +25,14 @@ public class User {
         this.unidades = new ArrayList<>();
     }
 
+    public User(String email, String name) {
+        this.id = null;
+        this.email = email;
+        this.name = name;
+        this.roles = new ArrayList<>();
+        this.unidades = new ArrayList<>();
+    }
+
     public boolean validate() {
         return validateName() && validateEmail();
     }
