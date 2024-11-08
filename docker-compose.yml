@@ -1,0 +1,12 @@
+services:
+  postgres:
+    container_name: postgres_produtos_unidades
+    image: postgres
+    environment:
+      POSTGRES_USER: username
+      POSTGRES_PASSWORD: password
+      PGDATA: /var/lib/postgresql/data
+      POSTGRES_DB: produtos_unidades
+    ports:
+      - 5432:5432
+    restart: unless-stopped

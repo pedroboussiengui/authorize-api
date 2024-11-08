@@ -1,0 +1,52 @@
+@baseUrl = http://localhost:8080
+@version = /api/v1
+
+### Login request for john
+
+POST {{baseUrl}}{{version}}/login?email=john@email.com
+
+### Login request for Maria
+
+POST {{baseUrl}}{{version}}/login?email=maria@email.com
+
+### Login request for Maria
+
+POST {{baseUrl}}{{version}}/login?email=pedro@email.com
+
+### User registration (required admin user token)
+
+POST {{baseUrl}}{{version}}/user-registration
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhdXRoMCIsInN1YiI6Im1hcmlhQGVtYWlsLmNvbSIsImlhdCI6MTczMDMzMzE5Niwicm9sZXMiOlsiYWRtaW4iXSwiZW1haWwiOiJNYXJpYSBEb2UiLCJleHAiOjE3MzAzMzY3OTZ9.GDdrFQR-2ddJncl4vqSFGQWJL8LmedG1uLCBNgK4SVk
+
+{
+    "email": "vini@gmail.com",
+    "name": "Vini Yega",
+    "roles": ["gerente", "operador"]
+}
+
+### Get all users
+
+GET {{baseUrl}}{{version}}/users
+
+### Find user by e-mail
+
+GET {{baseUrl}}{{version}}/users/findByEmail?email=pedro@email.com
+
+### Register unidade for user
+
+POST {{baseUrl}}{{version}}/unidades
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhdXRoMCIsInN1YiI6InBlZHJvQGVtYWlsLmNvbSIsImlhdCI6MTczMDMyNzMwMywicm9sZXMiOlsib3BlcmFkb3IiLCJnZXJlbnRlIl0sImVtYWlsIjoiUGVkcm8iLCJleHAiOjE3MzAzMzA5MDN9.8wFip92vTFT-lTVcZ-p-qJA_2vKnx3kCfJpMvk6g9h4
+
+{
+    "title": "Unidade II"
+}
+
+### List all unidades
+
+GET {{baseUrl}}{{version}}/unidades
+
+### Register a product in unidade of ID #1
+
+GET {{baseUrl}}{{version}}/unidades/1/products
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhdXRoMCIsInN1YiI6Ik1hcmlhIERvZSIsImlhdCI6MTczMDE2MzMzOSwicm9sZXMiOlsiZ2VyZW50ZSJdLCJlbWFpbCI6Im1hcmlhQGVtYWlsLmNvbSIsImV4cCI6MTczMDE2NjkzOX0.mEyKkZtg8l-zdTICXCjk2_UKD3YCfCwnyWSKNLcoI8s
